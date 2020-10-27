@@ -16,14 +16,23 @@ public class Main {
 
         return lengthList;
     }
+    public static int greatest(ArrayList<Integer> list) {
+        Integer theGreatestNumberThatHasEverExisted = 0;
+        for(Integer number: list){
+            if(theGreatestNumberThatHasEverExisted< number){
+                theGreatestNumberThatHasEverExisted = number;
+            }
+        }
+        // write your code here
+        return theGreatestNumberThatHasEverExisted;
+    }
     public static void main(String[] args) {
-        ArrayList<String> list = new ArrayList<String>();
-        list.add("Hallo");
-        list.add("Moi");
-        list.add("Benvenuto!");
-        list.add("badger badger badger badger");
-        ArrayList<Integer> lengths = lengths(list);
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        list.add(3);
+        list.add(2);
+        list.add(7);
+        list.add(2);
 
-        System.out.println("The lengths of the Strings: " + lengths);
+        System.out.println("The greatest number is: " + greatest(list));
     }
 }
