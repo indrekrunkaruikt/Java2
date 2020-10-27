@@ -1,31 +1,29 @@
 import java.util.ArrayList;
 
 public class Main {
-    public static int sum(ArrayList<Integer> list) {
-        // write your code here
-        Integer sum = 0;
-        for (int numb : list) {
-            sum = sum + numb;
-        }
-        return sum;
+    public static ArrayList<Integer> addNumbersToList(int num1, int num2, int num3){
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        list.add(num1);
+        list.add(num2);
+        list.add(num3);
+        return list;
     }
-    public static double average(ArrayList<Integer> list) {
-        Integer impoNumber = sum(list);
-        Double howManyNumbers = 0.0;
-        for(Integer number : list){
-            howManyNumbers++;
+    public static ArrayList<Integer> lengths(ArrayList<String> list) {
+        ArrayList<Integer> lengthList = new ArrayList<Integer>();
+        for(String word: list){
+            lengthList.add(word.length());
         }
-        double result = impoNumber/howManyNumbers;
-        return result;
+
+        return lengthList;
     }
     public static void main(String[] args) {
-        ArrayList<Integer> list = new ArrayList<Integer>();
-        list.add(3);
-        list.add(2);
-        list.add(7);
-        list.add(2);
-        System.out.println(sum(list));
-        System.out.println(average(list));
-        System.out.println("The average is: " + average(list));
+        ArrayList<String> list = new ArrayList<String>();
+        list.add("Hallo");
+        list.add("Moi");
+        list.add("Benvenuto!");
+        list.add("badger badger badger badger");
+        ArrayList<Integer> lengths = lengths(list);
+
+        System.out.println("The lengths of the Strings: " + lengths);
     }
 }
