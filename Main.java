@@ -1,38 +1,36 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main {
-    public static ArrayList<Integer> addNumbersToList(int num1, int num2, int num3){
-        ArrayList<Integer> list = new ArrayList<Integer>();
-        list.add(num1);
-        list.add(num2);
-        list.add(num3);
-        return list;
-    }
-    public static ArrayList<Integer> lengths(ArrayList<String> list) {
-        ArrayList<Integer> lengthList = new ArrayList<Integer>();
-        for(String word: list){
-            lengthList.add(word.length());
-        }
+    public static boolean moreThanOnce(ArrayList<Integer> list, int number) {
+        // write your code here
 
-        return lengthList;
-    }
-    public static int greatest(ArrayList<Integer> list) {
-        Integer theGreatestNumberThatHasEverExisted = 0;
-        for(Integer number: list){
-            if(theGreatestNumberThatHasEverExisted< number){
-                theGreatestNumberThatHasEverExisted = number;
+        for(Integer number2 : list) {
+            if (number != number2) {
+                return true;
+            } else {
+                return false;
             }
         }
-        // write your code here
-        return theGreatestNumberThatHasEverExisted;
+        return true;
     }
+
     public static void main(String[] args) {
+        Scanner reader = new Scanner(System.in);
+
         ArrayList<Integer> list = new ArrayList<Integer>();
         list.add(3);
         list.add(2);
         list.add(7);
         list.add(2);
 
-        System.out.println("The greatest number is: " + greatest(list));
+        System.out.println("Type a number: ");
+        int number = Integer.parseInt(reader.nextLine());
+        if (moreThanOnce(list, number)) {
+            System.out.println(number + " appears more than once.");
+        } else {
+            System.out.println(number + " does not appear more than once.");
+        }
     }
+
 }
