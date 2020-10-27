@@ -23,20 +23,20 @@ public class Main {
         }
     }
     public static void main(String[] args) {
-        Account bartosAccount = new Account("Barto's account",100.00);
-        Account bartosSwissAccount = new Account("Barto's account in Switzerland",1000000.00);
+        Account mattsAccount = new Account( "Matt's account",1000.0);
+        Account my_account = new Account("My account",0.0);
 
         System.out.println("Initial state");
-        System.out.println(bartosAccount);
-        System.out.println(bartosSwissAccount);
+        System.out.println(mattsAccount);
+        System.out.println(my_account);
 
-        bartosAccount.withdrawal(20);
-        System.out.println("Barto's account balance is now: "+ bartosAccount.balance());
-        bartosSwissAccount.deposit(200);
-        System.out.println("Barto's Swiss account balance is now: "+ bartosSwissAccount.balance());
+        mattsAccount.withdrawal(100);
+        System.out.println("Barto's account balance is now: "+ mattsAccount.balance());
+        my_account.deposit(100);
+        System.out.println("Barto's Swiss account balance is now: "+ my_account.balance());
 
         System.out.println("Final state");
-        System.out.println(bartosAccount);
-        System.out.println(bartosSwissAccount);
+        System.out.println(mattsAccount);
+        System.out.println(my_account);
     }
 }
