@@ -1,33 +1,30 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-
 public class Main {
-    public static boolean palindrome(String text) {
-        String normalText = text;
-        String reverseText = "";
-        text.length();
-        for(int i=0; i<=normalText.length()-1; i++) {
-            reverseText = reverseText + (normalText.charAt(i));
-            System.out.println(normalText.charAt(i));
-        }
-        System.out.println(reverseText);
-        // write your code here
-        if(normalText != reverseText){
-            return true;
-        }else {
-            return false;
+    public static void combine(ArrayList<Integer> first, ArrayList<Integer> second){
+        first.addAll(second);
+    }
+    public static void smartCombine(ArrayList<Integer> first, ArrayList<Integer> second){
+        for(Integer number : second){
+            if(first.contains(number)){
+                return;
+            }else{
+                first.add(number);
+            }
         }
     }
-
     public static void main(String[] args) {
-        Scanner reader = new Scanner(System.in);
-
-        System.out.println("Type a text: ");
-        String text = reader.nextLine();
-        if (palindrome(text)) {
-            System.out.println("The text is a palindrome!");
-        } else {
-            System.out.println("The text is not a palindrome!");
-        }
+        ArrayList<Integer> list1 = new ArrayList<Integer>();
+        ArrayList<Integer> list2 = new ArrayList<Integer>();
+        list1.add(4);
+        list1.add(3);
+        list2.add(5);
+        list2.add(10);
+        list2.add(6);
+        list2.add(8);
+        list2.add(9);
+        smartCombine(list1, list2);
+        System.out.println(list1); // prints [4, 3, 5, 10, 7]
+        System.out.println(list2); // prints [5, 10, 7]
     }
 }
