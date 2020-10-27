@@ -1,30 +1,42 @@
-import java.util.ArrayList;
-import java.util.Scanner;
 public class Main {
-    public static void combine(ArrayList<Integer> first, ArrayList<Integer> second){
-        first.addAll(second);
-    }
-    public static void smartCombine(ArrayList<Integer> first, ArrayList<Integer> second){
-        for(Integer number : second){
-            if(first.contains(number)){
-                return;
-            }else{
-                first.add(number);
-            }
+
+    public static class Account {
+        String name;
+        double balance;
+
+        public Account(String name, double balance) {
+            this.name = name;
+            this.balance = balance;
+        }
+
+        public void withdrawal(int ammount) {
+            this.balance = this.balance - ammount;
+        }
+
+        public void deposit(int ammount) {
+            this.balance = this.balance + ammount;
+
+        }
+
+        public double balance() {
+            return this.balance;
         }
     }
     public static void main(String[] args) {
-        ArrayList<Integer> list1 = new ArrayList<Integer>();
-        ArrayList<Integer> list2 = new ArrayList<Integer>();
-        list1.add(4);
-        list1.add(3);
-        list2.add(5);
-        list2.add(10);
-        list2.add(6);
-        list2.add(8);
-        list2.add(9);
-        smartCombine(list1, list2);
-        System.out.println(list1); // prints [4, 3, 5, 10, 7]
-        System.out.println(list2); // prints [5, 10, 7]
+        Account bartosAccount = new Account("Barto's account",100.00);
+        Account bartosSwissAccount = new Account("Barto's account in Switzerland",1000000.00);
+
+        System.out.println("Initial state");
+        System.out.println(bartosAccount);
+        System.out.println(bartosSwissAccount);
+
+        bartosAccount.withdrawal(20);
+        System.out.println("Barto's account balance is now: "+ bartosAccount.balance());
+        bartosSwissAccount.deposit(200);
+        System.out.println("Barto's Swiss account balance is now: "+ bartosSwissAccount.balance());
+
+        System.out.println("Final state");
+        System.out.println(bartosAccount);
+        System.out.println(bartosSwissAccount);
     }
 }
